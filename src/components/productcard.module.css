@@ -8,12 +8,12 @@ div.card {
 }
 
 div.cardimg {
-    width: 100%;
-    height: 70%;
-    position: relative;
+	width: 100%;
+	height: 70%;
+	position: relative;
 }
 
 div.cardtext {
-    height: 30%;
-    padding: 10px;
+	height: 30%;
+	padding: 10px;
 }
