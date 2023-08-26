@@ -1,16 +1,18 @@
 import Image from 'next/image'
-import styles from './productcard.module.css'
 
-export default function ProductCard() {
+export default function ProductCard({ hospitalName, imgSrc }: { hospitalName: string; imgSrc: string }) {
 	return (
-		<div className={styles.card}>
-			<div className={styles.cardimg}>
-				<Image src={'/img/vaccine1.jpg'} alt="Product Picture" fill={true} objectFit="cover" />
+		<div className="w-1/5 h-[300px] rounded-lg shadow-lg">
+			<div className="w-full h-[70%] relative rounded-t-lg">
+				<Image
+					src={imgSrc}
+					className="object-cover rounded-t-lg"
+					alt="Product Picture"
+					fill={true}
+					objectFit="cover"
+				/>
 			</div>
-			<div className={styles.cardtext}>
-				<h4>Vaccine</h4>
-				<p>Vaccines are vital for preventing diseases.</p>
-			</div>
+			<div className="w-full h-[30%] p-[10px] font-semibold">{hospitalName}</div>
 		</div>
 	)
 }
