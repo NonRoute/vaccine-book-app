@@ -1,5 +1,5 @@
 import Banner from '@/components/Banner'
-import ProductCard from '@/components/ProductCard'
+import Card from '@/components/Card'
 
 export default function Home() {
 	return (
@@ -15,9 +15,9 @@ export default function Home() {
 					alignContent: 'space-around'
 				}}
 			>
-				<ProductCard hospitalName="Chulalongkorn Hospital" imgSrc="/img/chula.jpg" />
-				<ProductCard hospitalName="Rajavithi Hospital" imgSrc="/img/rajavithi.jpg" />
-				<ProductCard hospitalName="Thammasat University Hospital" imgSrc="/img/thammasat.jpg" />
+				<Card hospitalName="Chulalongkorn Hospital" imgSrc="/img/chula.jpg" />
+				<Card hospitalName="Rajavithi Hospital" imgSrc="/img/rajavithi.jpg" />
+				<Card hospitalName="Thammasat University Hospital" imgSrc="/img/thammasat.jpg" />
 			</div>
 		</main>
 	)

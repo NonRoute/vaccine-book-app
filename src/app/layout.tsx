@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import TopMenu from '@/components/TopMenu'
+import MenuBar from '@/components/MenuBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<TopMenu />
+				<MenuBar />
 				{children}
 			</body>
 		</html>
