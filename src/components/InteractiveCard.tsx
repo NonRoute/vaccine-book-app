@@ -2,7 +2,7 @@
 import React from 'react'
 
 export default function InteractiveCard({ children, contentName }: { children: React.ReactNode; contentName: string }) {
-	function onCarSelected() {
+	function onCardSelected() {
 		alert('You select ' + contentName)
 	}
 
@@ -17,8 +17,8 @@ export default function InteractiveCard({ children, contentName }: { children: R
 	}
 	return (
 		<div
-			className="w-1/5 h-[300px] rounded-lg shadow-lg"
-			onClick={() => onCarSelected()}
+			className="w-1/5 h-[350px] rounded-lg shadow-lg"
+			onClick={() => onCardSelected()}
 			onMouseOver={(e) => onCardMouseAction(e)}
 			onMouseOut={(e) => onCardMouseAction(e)}
 		>
