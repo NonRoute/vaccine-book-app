@@ -1,6 +1,7 @@
 'use client'
 import { useReducer } from 'react'
 import Card from './Card'
+import Link from 'next/link';
 
 export default function CardPanel() {
 	const compareReducer = (
@@ -22,6 +23,12 @@ export default function CardPanel() {
 
 	const [compareList, dispatchCompare] = useReducer(compareReducer, new Map<string, number>())
 
+	const mockHospitalRepo = [
+		{ hid: '001', name: 'Chulalongkorn Hospital', image: '/img/chula.jpg' },
+		{ hid: '002', name: 'Rajavithi Hospital', image: '/img/rajavithi.jpg' },
+		{ hid: '003', name: 'Thammasat University Hospital', image: '/img/thammasat.jpg' }
+	]
+
 	return (
 		<div>
 			<div
@@ -34,30 +41,18 @@ export default function CardPanel() {
 					alignContent: 'space-around'
 				}}
 			>
-				<Card
-					hospitalName="Chulalongkorn Hospital"
-					imgSrc="/img/chula.jpg"
-					onCompare={(hospitalName: string, rating: number) =>
-						dispatchCompare({ type: 'add', hospitalName, rating })
-					}
-					compareList={compareList}
-				/>
-				<Card
-					hospitalName="Rajavithi Hospital"
-					imgSrc="/img/rajavithi.jpg"
-					onCompare={(hospitalName: string, rating: number) =>
-						dispatchCompare({ type: 'add', hospitalName, rating })
-					}
-					compareList={compareList}
-				/>
-				<Card
-					hospitalName="Thammasat University Hospital"
-					imgSrc="/img/thammasat.jpg"
-					onCompare={(hospitalName: string, rating: number) =>
-						dispatchCompare({ type: 'add', hospitalName, rating })
-					}
-					compareList={compareList}
-				/>
+				{mockHospitalRepo.map((hospitalItem) => (
+					<Link href={`/hospital/${hospitalItem.hid}`} className="w-1/5">
+						<Card
+							hospitalName={hospitalItem.name}
+							imgSrc={hospitalItem.image}
+							onCompare={(hospitalName: string, rating: number) =>
+								dispatchCompare({ type: 'add', hospitalName, rating })
+							}
+							compareList={compareList}
+						/>
+					</Link>
+				))}
 			</div>
 			<div className="w-full text-xl font-medium ml-4">Hospital Lists</div>
 			{Array.from(compareList).map(([hospitalName, rating]) => (

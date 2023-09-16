@@ -27,7 +27,9 @@ export default function Card({
 			<Rating
 				className="px-2 pt-3 h-[10%]"
 				value={compareList.get(hospitalName) || 0}
-				onClick={(e) => e.stopPropagation()}
+				onClick={(e) => {
+					e.stopPropagation()
+				}}
 				onChange={(event, newValue) => {
 					onCompare(hospitalName, newValue)
 				}}
