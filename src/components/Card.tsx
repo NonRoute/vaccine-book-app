@@ -10,8 +10,8 @@ export default function Card({
 }: {
 	hospitalName: string
 	imgSrc: string
-	onCompare: Function
-	compareList: Map<string, number>
+	onCompare?: Function
+	compareList?: Map<string, number>
 }) {
 	return (
 		<InteractiveCard contentName={hospitalName}>
@@ -24,17 +24,21 @@ export default function Card({
 					objectFit="cover"
 				/>
 			</div>
-			<Rating
-				className="px-2 pt-3 h-[10%]"
-				value={compareList.get(hospitalName) || 0}
-				onClick={(e) => {
-					e.stopPropagation()
-				}}
-				onChange={(event, newValue) => {
-					onCompare(hospitalName, newValue)
-				}}
-				size="small"
-			/>
+			{onCompare && compareList ? (
+				<Rating
+					className="px-2 pt-3 h-[10%]"
+					value={compareList.get(hospitalName) || 0}
+					onClick={(e) => {
+						e.stopPropagation()
+					}}
+					onChange={(event, newValue) => {
+						onCompare(hospitalName, newValue)
+					}}
+					size="small"
+				/>
+			) : (
+				''
+			)}
 			<div className="w-full h-[30%] p-[10px] font-semibold">{hospitalName}</div>
 		</InteractiveCard>
 	)
