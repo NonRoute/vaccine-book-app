@@ -9,19 +9,23 @@ export default async function MenuBar() {
 
 	return (
 		<div className="h-[50px] bg-white fixed top-0 left-0 right-0 z-30 border-t border-t-gray-400 flex justify-end shadow-md">
-			{session ? (
-				<Link href="/api/auth/signout">
-					<div className="w-[120px] h-full text-center flex justify-center items-center font-sans text-sm text-cyan-600 hover:bg-gray-200 absolute left-0">
-						Sign-Out of {session.user?.name}
-					</div>
-				</Link>
-			) : (
-				<Link href="/api/auth/signin">
-					<div className="w-[120px] h-full text-center flex justify-center items-center font-sans text-sm text-cyan-600 hover:bg-gray-200 absolute left-0">
-						Sign-In
-					</div>
-				</Link>
-			)}
+			<div className="flex flex-row absolute left-0 h-full">
+				{session ? (
+					<Link href="/api/auth/signout">
+						<div className="w-[120px] h-full text-center flex justify-center items-center font-sans text-sm text-cyan-600 hover:bg-gray-200">
+							Sign-Out of {session.user?.name}
+						</div>
+					</Link>
+				) : (
+					<Link href="/api/auth/signin">
+						<div className="w-[120px] h-full text-center flex justify-center items-center font-sans text-sm text-cyan-600 hover:bg-gray-200">
+							Sign-In
+						</div>
+					</Link>
+				)}
+				<MenuItem title="My Booking" pageRef="/mybooking" />
+			</div>
+
 			<MenuItem title="Booking" pageRef="/booking" />
 			<Link href="/">
 				<Image

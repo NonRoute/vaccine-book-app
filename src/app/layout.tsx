@@ -5,6 +5,7 @@ import MenuBar from '@/components/MenuBar'
 import NextAuthProvider from './providers/NextAuthProvider'
 import { authOptions } from './api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
+import ReduxProvider from '@/redux/ReduxProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,14 +16,16 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
 	const session = await getServerSession(authOptions)
-	
+
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<NextAuthProvider session={session}>
-					<MenuBar />
-					{children}
-				</NextAuthProvider>
+				<ReduxProvider>
+					<NextAuthProvider session={session}>
+						<MenuBar />
+						{children}
+					</NextAuthProvider>
+				</ReduxProvider>
 			</body>
 		</html>
 	)
