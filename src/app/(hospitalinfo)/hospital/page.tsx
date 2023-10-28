@@ -1,3 +1,4 @@
+import AddHospitalForm from '@/components/AddHospitalForm'
 import HospitalCatalog from '@/components/hospitalCatalog'
 import getHospitals from '@/libs/getHospitals'
 import { LinearProgress } from '@mui/material'
@@ -17,6 +18,7 @@ export default function Hospital() {
 				}
 			>
 				<HospitalCatalog hospitalJson={hospitals} />
+				<AddHospitalForm />
 			</Suspense>
 		</main>
 	)
