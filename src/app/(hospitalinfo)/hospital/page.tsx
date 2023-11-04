@@ -1,5 +1,5 @@
 import AddHospitalForm from '@/components/AddHospitalForm'
-import HospitalCatalog from '@/components/hospitalCatalog'
+import HospitalCatalog from '@/components/HospitalCatalog'
 import getHospitals from '@/libs/getHospitals'
 import { LinearProgress } from '@mui/material'
 import { Suspense } from 'react'

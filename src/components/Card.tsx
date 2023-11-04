@@ -16,13 +16,7 @@ export default function Card({
 	return (
 		<InteractiveCard contentName={hospitalName}>
 			<div className="w-full h-[60%] relative rounded-t-lg">
-				<Image
-					src={imgSrc}
-					className="object-cover rounded-t-lg"
-					alt="Product Picture"
-					fill={true}
-					objectFit="cover"
-				/>
+				<Image src={imgSrc} className="object-cover rounded-t-lg" alt="Product Picture" fill={true} />
 			</div>
 			{onCompare && compareList ? (
 				<Rating
